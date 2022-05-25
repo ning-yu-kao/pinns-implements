@@ -144,7 +144,7 @@ Please follow the instruction below to set up your environment.
         print("Successfully Logged In!")
         ```
         
-     You guys can view my output dashboard of a sigle run at this [link](https://wandb.ai/kaoningyu/gcn-ppi/reports/Predict-PPI-network-using-GCN--VmlldzoyMDIyNDgw?accessToken=0fgywscyq72iiivoyiq1lunofjhvkdqbejovoug456owxpjkax4ize40ug7wtwtr).
+     You guys can view my output dashboard of a sigle run at this [link](https://wandb.ai/kaoningyu/PINN-1D-HEAT/reports/PINN-1D-Heat-Equation--VmlldzoyMDY3MzA0?accessToken=wazf1xw9h4meeexyfiofb5efbjxliz517twyglr8ayssqm14v1ju2ar45epubdq0).
      
 <p align="right">(<a href="#top">back to top</a>)</p>
 
