@@ -5,7 +5,6 @@
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ning-yu-kao)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kaoningyupage/)
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kaoningyu@gmail.com)
-[![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)]()
 
 
 
@@ -50,22 +49,42 @@
 
 ## Physics-informed Neural Networks
 
-> Let's briefly recap what's PINNs! For detail description, please refer to [the paper](https://www.sciencedirect.com/science/article/pii/S0021999118307125) I cited.
+> Let's briefly recap what's PINNs! For detail description, please refer to [this paper](https://www.sciencedirect.com/science/article/pii/S0021999118307125) I cited.
 
-Given the location of a data point as input $x$, a neural network can be used to output a prediction of its value $u$. As shown below:
-<div align="center">
-  <img src="https://benmoseley.blog/wp-content/uploads/2021/08/nn.png" height=250 width=500>
-</div>
+For a continuous time model, we define:
 
-And then we try to train the network’s free parameters (denoted by the $\theta$) so that the our predictions closely match our training data. Here, we use Mean Square Error as the loss fuction we want to minimize. Thus the loss fuction of neural network is denoted as:
+  - Deep Neural Network $u(t,x)$
 
+  - Physcis-informed Neural Network $f(t,x)$
+
+Our goal is to train the shared parameters between u(t,x) and f(t,x) can be learned by minimizing the combination of mean squared error loss(MAE):
+
+$MSE = MSE_u+MSE_f$
+
+where
+
+  - $MAE_u = \frac{1}{N_u}\sum\limits_{i=1}^{N_u} \space | u(t_u^i,x_u^i)-u^i| $ 
+
+      $t_u^i, x_u^i, u^i$ denotes the initial and boundary condition of $u(t,x)$
+
+  - $MAE_f = \frac{1}{N_f}\sum\limits_{i=1}^{N_f} \space | f(t_f^i,x_f^i)| $
+
+      $t_f^i, x_f^i$ denotes the collocations points for $f(t,x)$
+      
+Sometimes, we'll add a weight on the "physics loss" to make sure that we're not relying too much on physics law. Here, I only use 10% of it. You can try smaller value by yourself.
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-In this project, we use a 1D Heat Equation as an example to demostrate PINNs implementation. Once we finish training, we'll visualize the equation as 3D surface plot to compare with analytical solution.
+In this project, we use a 1D Heat Equation as an example to demostrate PINNs implementation. Once we finish training, we'll visualize the equation as 3D surface plot through training process and compare with the analytical solution.
 
+**Problem Statement**
 
+PDE --> $\frac{\partial u}{\partial x} = 2 \frac{\partial u}{\partial t} + u$
+
+B.C. --> $u(0,x) = 6e^{-3x}$
+
+Analytical solution --> $u(t,x) = 6e^{-3x-2t}$
 ### Built With
 
 This is major frameworks/libraries used in this project.
