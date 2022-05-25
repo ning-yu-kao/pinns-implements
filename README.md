@@ -50,7 +50,15 @@
 
 ## Physics-informed Neural Networks
 
-Let's briefly recap what's PINNs! 
+> Let's briefly recap what's PINNs! For detail description, please refer to [the paper](https://www.sciencedirect.com/science/article/pii/S0021999118307125) I cited.
+
+Given the location of a data point as input $x$, a neural network can be used to output a prediction of its value $u$. As shown below:
+<div align="center">
+  <img src="https://benmoseley.blog/wp-content/uploads/2021/08/nn.png" height=250 width=500>
+</div>
+
+And then we try to train the network’s free parameters (denoted by the $\theta$) so that the our predictions closely match our training data. Here, we use Mean Square Error as the loss fuction we want to minimize. Thus the loss fuction of neural network is denoted as:
+
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
